@@ -963,7 +963,7 @@ local client = services.Players.LocalPlayer
 
 local utility = {}
 
---[[function utility.dragify(object, dragoutline)
+function utility.dragify(object, dragoutline)
     local start, objectposition, dragging, currentpos
 
     object.InputBegan:Connect(function(input)
@@ -992,7 +992,7 @@ local utility = {}
             object.Position = currentpos
         end
     end)
-end ]]
+end
 
 function utility.textlength(str, font, fontsize)
     local text = Drawing.new("Text")
