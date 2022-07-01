@@ -970,29 +970,26 @@ function utility.dragify(object, dragoutline)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             start = input.Position
-            --dragoutline.Visible = false
+            dragoutline.Visible = true
             objectposition = object.Position
-            object.Position = currentpos
         end
     end)
 
     utility.connect(services.InputService.InputChanged, function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
             currentpos = UDim2.new(objectposition.X.Scale, objectposition.X.Offset + (input.Position - start).X, objectposition.Y.Scale, objectposition.Y.Offset + (input.Position - start).Y)
-            --input.Position = currentpos
-            objectposition.Position = currentpos
-            object.Position = currentpos
+            dragoutline.Position = currentpos
         end
     end)
 
     utility.connect(services.InputService.InputEnded, function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 and dragging then 
             dragging = false
-            --dragoutline.Visible = false
+            dragoutline.Visible = false
             object.Position = currentpos
         end
     end)
-end
+end 
 
 function utility.textlength(str, font, fontsize)
     local text = Drawing.new("Text")
@@ -2869,7 +2866,7 @@ function library:Load(options)
         Theme = "Window Border",
     })
     
-    utility.dragify(holder, object)
+    utility.dragify(holder, dragoutline)
 
     local tabholder = utility.create("Square", {
         Size = UDim2.new(1, -16, 1, -52),
