@@ -963,14 +963,14 @@ local client = services.Players.LocalPlayer
 
 local utility = {}
 
-function utility.dragify(object, dragoutline)
+--[[function utility.dragify(object, dragoutline)
     local start, objectposition, dragging, currentpos
 
     object.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             start = input.Position
-            dragoutline.Visible = false
+            --dragoutline.Visible = false
             objectposition = object.Position
         end
     end)
@@ -990,7 +990,7 @@ function utility.dragify(object, dragoutline)
             --object.Position = currentpos
         end
     end)
-end 
+end ]]
 
 function utility.textlength(str, font, fontsize)
     local text = Drawing.new("Text")
