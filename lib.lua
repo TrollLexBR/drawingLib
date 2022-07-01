@@ -2869,7 +2869,7 @@ function library:Load(options)
         Theme = "Window Border",
     })
     
-    utility.dragify(holder, dragoutline)
+    utility.dragify(holder, object)
 
     local tabholder = utility.create("Square", {
         Size = UDim2.new(1, -16, 1, -52),
