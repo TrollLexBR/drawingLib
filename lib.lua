@@ -963,29 +963,29 @@ local client = services.Players.LocalPlayer
 
 local utility = {}
 
-function utility.dragify(object, dragoutline)
+function utility.dragify(object)--, dragoutline)
     local start, objectposition, dragging, currentpos
 
     object.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             start = input.Position
-            dragoutline.Visible = false
-            objectposition = object.Position
+            --dragoutline.Visible = false
+            --objectposition = object.Position
         end
     end)
 
     utility.connect(services.InputService.InputChanged, function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
-            currentpos = UDim2.new(objectposition.X.Scale, objectposition.X.Offset + (input.Position - start).X, objectposition.Y.Scale, objectposition.Y.Offset + (input.Position - start).Y)
-            object.Position = currentpos
+            currentpos = UDim2.new(object.X.Scale, object.X.Offset + (input.Position - start).X, object.Y.Scale, object.Y.Offset + (input.Position - start).Y)
+            input.Position = currentpos
         end
     end)
 
     utility.connect(services.InputService.InputEnded, function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 and dragging then 
             dragging = false
-            dragoutline.Visible = false
+            --dragoutline.Visible = false
             object.Position = currentpos
         end
     end)
