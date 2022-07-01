@@ -971,13 +971,13 @@ function utility.dragify(object)--, dragoutline)
             dragging = true
             start = input.Position
             --dragoutline.Visible = false
-            --objectposition = object.Position
+            objectposition = object.Position
         end
     end)
 
     utility.connect(services.InputService.InputChanged, function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
-            currentpos = UDim2.new(object.X.Scale, object.X.Offset + (input.Position - start).X, object.Y.Scale, object.Y.Offset + (input.Position - start).Y)
+            currentpos = UDim2.new(objectposition.X.Scale, objectposition.X.Offset + (input.Position - start).X, objectposition.Y.Scale, objectposition.Y.Offset + (input.Position - start).Y)
             input.Position = currentpos
         end
     end)
