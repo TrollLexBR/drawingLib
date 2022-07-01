@@ -979,7 +979,7 @@ function utility.dragify(object, dragoutline)
         if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
             currentpos = UDim2.new(object.X.Scale, object.X.Offset + (input.Position - start).X, object.Y.Scale, object.Y.Offset + (input.Position - start).Y)
             --dragoutline.Position = currentpos
-            object.Position = currentpos
+            --object.Position = currentpos
         end
     end)
 
