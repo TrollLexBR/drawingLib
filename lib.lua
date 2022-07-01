@@ -970,7 +970,7 @@ function utility.dragify(object, dragoutline)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             start = input.Position
-            dragoutline.Visible = true
+            dragoutline.Visible = false
             objectposition = object.Position
         end
     end)
